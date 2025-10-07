@@ -1,8 +1,252 @@
-.background {
-    font-size: larger;
-    background-color: blue;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.test{
-    font-style: italic;
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.content-Holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-Content {
+    padding: 10px 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: auto;
+    margin: 0 0;
+}
+
+.content-Content.TopBottom{
+    border-radius: 50px;
+    background-color: white;
+}
+
+.content-Content.Square{
+    border-radius: 2px;
+    background-color: white;
+}
+
+.content-Content.Note{
+    border-radius: 2px;
+    border: 2px;
+    background-color: white;
+    border-style: dashed;
+    border-color: rgb(191, 191, 191);
+    position: relative;
+}
+
+.content-Content.Note::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 5px;
+    height: 5px;
+
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0,
+                151px 0,
+                0 46px,
+                151px 46px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.content-Content.Note:hover::before {
+    opacity: 1;
+}
+
+.content-Content.Note:hover{
+    cursor: pointer;
+}
+
+.arrow {
+    width: 2px;
+    height: 40px;
+    background-color: black;
+    position: relative;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    border: 6px solid transparent;
+    border-top-color: black;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    height: 500px;
+    width: 1000px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-header-icon{
+    position: absolute;
+    left: 8px;
+    top: 6px;
+}
+
+.modal-header{
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    font-size: 0.9rem;
+    background: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn:hover{
+    background-color: red;
+    color: white;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-title-Container{
+    background-color: rgb(13, 42, 72);
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    height: 100px;
+    z-index: 0;
+}
+
+.modal-bp-attribute{
+    color: white;
+    background-color: rgb(13, 42, 72);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    z-index: 1;
+    font-size: 0.9rem;
+}
+
+.modal-title-Badge{
+    color: white;
+    background-color: white;
+    position: absolute;
+    top: 18px;
+    left: 100px;
+    width: 80%;
+    height: 30px;
+    z-index: 1;
+    font-size: 0.9rem;
+    border-radius: 2px;
+}
+
+.modal-title{
+    color: black;
+    position: absolute;
+    top: -10px;
+    left: 5px;
+}
+
+
+.modal-bp-bodyattribute{
+    color: black;
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    z-index: 1;
+    font-size: 0.9rem;
+}
+
+.modal-body-Badge{
+    color: black;
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 80%;
+    height: 55%;
+    z-index: 1;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    border-color: rgb(102, 102, 102);
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: inset 0 0 0 2px rgb(255, 195, 0);
+    padding-left: 5px;
+}
+
+.modal-body{
+    text-align: left;
+    text-justify: inter-word;
+}
+
+.modal-bp-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    position: absolute;
+    top: 93%;
+    right: 15px;
+    font-size: 2rem;
+    border-color: rgb(192, 192, 192);
+}
+
+.modal-lower-btn {
+    background: none;
+    cursor: pointer;
+    width: 15vh;
+    border-color: rgb(48, 48, 48);
+}
+
+.modal-lower-btn:hover{
+    background-color: rgb(184, 201, 216);
+    box-shadow: inset 0 0 0 2px white;
 }

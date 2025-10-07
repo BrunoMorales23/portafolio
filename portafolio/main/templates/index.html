@@ -5,6 +5,75 @@
 {% endblock %}
 
 {% block content %}
-<p class="background">Hola!</p>
-<p class="test"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta officia, quas fugiat ea velit sunt quaerat eos minus. Aliquid corporis corrupti at veniam neque laborum tempora distinctio reiciendis non eaque!</p>
+<div class="content">
+    <div class="content-Holder">
+        <p class="content-Content TopBottom">¡Hola!</p>
+        <div class="arrow"></div>
+        <p class="content-Content Square">¡Bienvenidos a mi portafolio!</p>
+        <div class="arrow"></div>
+        <p class="content-Content Note" id="openModal">¿Quién soy?</p>
+        <div class="arrow"></div>
+        <p class="content-Content Square">Choice</p>
+    </div>
+</div>
+
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+        <img src="{% static './assets/bluePrismIcon.png' %}" class="modal-header-icon" width="35" height="25">
+        <p class="modal-header">Propiedades de la Nota</p>
+        <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-title-Container">
+            <p class="modal-bp-attribute">Nombre:</p>
+            <div class="modal-title-Badge">
+                <p class="modal-title">¿Quién soy?</p>
+            </div>
+        </div>
+        <div class="modal-body-Container">
+            <p class="modal-bp-bodyattribute">Texto de la nota:</p>
+            <div class="modal-body-Badge">
+                <p class="modal-body">
+                    Soy Bruno Morales, desarrollador RPA con Experiencia en Blue Prism y apasionado de Python. 
+                </br>
+                    Este portafolio fue creado con la inteción de replicar la interfaz de Blue Prism, con todas sus cosas bonitas (como cosas feas)
+                </br>
+                    Puede que sea complicado navegar por acá. Y si así lo es, entonces excelente, por qué entonces estoy replicando Blue Prism a la perfección.
+                </br>
+                </br>
+                    Dicho eso, ¡gracias por visitar mi portafolio!
+                </p>
+            </div>
+        </div>
+        <div class="modal-bp-buttons">
+            <button class="modal-lower-btn closeModal">Aceptar</button>
+            <button class="modal-lower-btn closeModal">Cancelar</button>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const openBtn = document.getElementById('openModal');
+  const closeBtn = document.getElementById('closeModal');
+  const modal = document.getElementById('myModal');
+
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+   const closeBtns = document.querySelectorAll('.closeModal');
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('show');
+  });
+</script>
 {% endblock %}
