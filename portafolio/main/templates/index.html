@@ -1,0 +1,10 @@
+{% extends "base.html" %} {%block title %} Home {% endblock %}
+{% load static %}
+{%block styles %}
+<link rel="stylesheet" href="{% static '/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<p class="background">Hola!</p>
+<p class="test"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta officia, quas fugiat ea velit sunt quaerat eos minus. Aliquid corporis corrupti at veniam neque laborum tempora distinctio reiciendis non eaque!</p>
+{% endblock %}
