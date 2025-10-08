@@ -1,0 +1,92 @@
+{% load static %}
+
+<div class="content">
+    <div class="content-Holder">
+        <p class="content-Content TopBottom">¡Hola de nuevo!</p>
+        <div class="arrow"></div>
+        <p class="content-Content Square">En este apartado, hay información sobre mi experiencia laboral</p>
+        <div class="arrow"></div>
+        <div class="content-Choice">
+            <div class="content-anchor"><span>¿Lo más reciente?</span></div>
+            <div class="choice-ArrowSpecial"></div>
+            <p class="content-Content NoteExperiencia" id="openModalExpAct">Experiencia Actual</p>
+            <div class="choice-Arrow"></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="home">
+                <div onclick="this.closest('form').submit();">
+                    <p class="content-Content VolverBottom">Volver</p>
+                </div>
+            </form>
+        </div>
+        <div class="arrowSpecial"></div>
+        <p class="content-Content NoteExperienciaColumn" id="openModalExpPrev">Experiencia Previa</p>
+        <div class="arrow"></div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="home">
+            <div onclick="this.closest('form').submit();">
+                <p class="content-Content VolverBottom">Volver</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-content">
+        <img src="{% static 'assets/bluePrismIcon.png' %}" class="modal-header-icon" width="35" height="25">
+        <p class="modal-header">Propiedades de la Nota</p>
+        <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-title-Container">
+            <p class="modal-bp-attribute">Nombre:</p>
+            <div class="modal-title-Badge">
+                <p class="modal-title"></p>
+            </div>
+        </div>
+        <div class="modal-body-Container">
+            <p class="modal-bp-bodyattribute">Texto de la nota:</p>
+            <div class="modal-body-Badge">
+                <p class="modal-body"></p>
+            </div>
+        </div>
+        <div class="modal-bp-buttons">
+            <button class="modal-lower-btn closeModal">Aceptar</button>
+            <button class="modal-lower-btn closeModal">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.getElementById('closeModal');
+    const closeBtns = document.querySelectorAll('.closeModal');
+    const openBtnAct = document.getElementById('openModalExpAct');
+    const openBtnPrev = document.getElementById('openModalExpPrev');
+    const title = document.querySelector('.modal-title');
+    const p = document.querySelector('.modal-body');
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+    }
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+    });
+    if (openBtnAct) {
+        openBtnAct.addEventListener('click', () => {
+            p.textContent = 'Actualmente, soy referente técnico en RMR Technology Solutions, para un proyecto, donde lidero desarrollos nuevos, propongo mejoras continuas y refactorizo código legacy del cliente. Mi foco está en entregar código de calidad, documentar todos los avances y dar soporte diario al equipo del cliente en dudas técnicas.';
+            title.textContent = "Experiencia Actual"
+            modal.classList.add('show');
+        });
+    }
+    if (openBtnPrev) {
+        openBtnPrev.addEventListener('click', () => {
+            p.textContent = 'Mi primer trabajo fue en Ctrl365, donde fui digital assistant (desarrollador trainee), en donde se me fue instruido en el uso de Blue Prism y por primera vez, me encontré en un entorno de trabajo dentro del rubro informático.\n Eventualmente pude ascender a Developer, por último a Digital Developer (Dev Junior +).\n Luego formé parte del equipo de Practia Global, donde fui Desarrollador de Blue Prism y Analista de Negocio para un proyecto de UIPath.\n Mi foco para esa instancia, no solo era entregar código en las mejores condiciones posibles, sino además, poder responder dudas y consultas de mi lider y el cliente, además de facilitar documentación y soporte productivo.';
+            title.textContent = "Experiencia Previa"
+            modal.classList.add('show');
+        });
+    }
+</script>

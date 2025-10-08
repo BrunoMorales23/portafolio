@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .background {
@@ -41,17 +42,31 @@ html, body {
     margin: 0 0;
 }
 
-.content-Content.TopBottom{
+.content-Content.TopBottom {
     border-radius: 50px;
     background-color: white;
+    box-shadow: inset 0 0 0 5px transparent;
 }
 
-.content-Content.Square{
+
+.content-Content.VolverBottom {
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: inset 0 0 0 5px transparent;
+}
+
+.content-Content.VolverBottom:hover {
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 5px red;
+}
+
+.content-Content.Square {
     border-radius: 2px;
     background-color: white;
 }
 
-.content-Content.Note{
+.content-Content.Note {
     border-radius: 2px;
     border: 2px;
     background-color: white;
@@ -60,6 +75,25 @@ html, body {
     position: relative;
 }
 
+.content-Content.NoteExperiencia {
+    border-radius: 2px;
+    border: 2px;
+    background-color: white;
+    border-style: dashed;
+    border-color: rgb(191, 191, 191);
+    position: relative;
+}
+
+.content-Content.NoteExperienciaColumn {
+    border-radius: 2px;
+    border: 2px;
+    top: 40px;
+    background-color: white;
+    border-style: dashed;
+    border-color: rgb(191, 191, 191);
+    position: relative;
+    margin-bottom: 45px;
+}
 
 .content-Content.Note::before {
     content: '';
@@ -71,9 +105,43 @@ html, body {
 
     background: rgb(0, 0, 0);
     box-shadow: 0 0,
-                151px 0,
-                0 46px,
-                151px 46px;
+        151px 0,
+        0 46px,
+        151px 46px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.content-Content.NoteExperienciaColumn::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 5px;
+    height: 5px;
+
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0,
+        191px 0,
+        0 46px,
+        191px 46px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.content-Content.NoteExperiencia::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 5px;
+    height: 5px;
+
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0,
+        191px 0,
+        0 46px,
+        191px 46px;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -82,32 +150,72 @@ html, body {
     opacity: 1;
 }
 
-.content-Content.Note:hover{
+.content-Content.NoteExperiencia:hover::before {
+    opacity: 1;
+}
+
+.content-Content.NoteExperienciaColumn:hover::before {
+    opacity: 1;
+}
+
+.content-Content.Note:hover {
+    cursor: pointer;
+}
+
+.content-Content.NoteExperiencia {
+    cursor: pointer;
+}
+
+.content-Content.NoteExperienciaColumn:hover {
     cursor: pointer;
 }
 
 .page-wave {
-  position: relative;
-  width: 180px;
-  height: 150px;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clip-path: path("M180,0 H0 V120 C60,170 120,85 180,130 Z");
-  overflow: hidden;
+    position: relative;
+    width: 180px;
+    height: 150px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: path("M180,0 H0 V120 C60,170 120,85 180,130 Z");
+    overflow: hidden;
 }
 
 .page-wave-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.page-wave:hover {
-  opacity: 1;
+.content-Page {
+    position: relative;
+}
+
+.content-Page::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 5px;
+    height: 5px;
+
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0,
+        185px 0,
+        0 143px,
+        185px 143px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.content-Page:hover::before {
+    opacity: 1;
+}
+
+.content-Page:hover {
     cursor: pointer;
 }
 
@@ -128,11 +236,42 @@ html, body {
     border-top-color: black;
 }
 
+.arrowSpecial {
+    width: 2px;
+    top: 40px;
+    height: 40px;
+    background-color: black;
+    position: relative;
+}
+
+.arrowSpecial::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    border: 6px solid transparent;
+    border-top-color: black;
+}
+
+
+.arrowSpecial::before {
+    content: 'No';
+    position: absolute;
+    left: 35px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+
+
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -148,13 +287,13 @@ html, body {
     flex-direction: row;
 }
 
-.modal-header-icon{
+.modal-header-icon {
     position: absolute;
     left: 8px;
     top: 6px;
 }
 
-.modal-header{
+.modal-header {
     position: absolute;
     top: -8px;
     left: 40px;
@@ -172,7 +311,7 @@ html, body {
     cursor: pointer;
 }
 
-.close-btn:hover{
+.close-btn:hover {
     background-color: red;
     color: white;
 }
@@ -181,7 +320,7 @@ html, body {
     display: flex;
 }
 
-.modal-title-Container{
+.modal-title-Container {
     background-color: rgb(13, 42, 72);
     position: absolute;
     top: 35px;
@@ -190,7 +329,7 @@ html, body {
     z-index: 0;
 }
 
-.modal-bp-attribute{
+.modal-bp-attribute {
     color: white;
     background-color: rgb(13, 42, 72);
     position: absolute;
@@ -200,7 +339,7 @@ html, body {
     font-size: 0.9rem;
 }
 
-.modal-title-Badge{
+.modal-title-Badge {
     color: white;
     background-color: white;
     position: absolute;
@@ -213,7 +352,7 @@ html, body {
     border-radius: 2px;
 }
 
-.modal-title{
+.modal-title {
     color: black;
     position: absolute;
     top: -10px;
@@ -221,7 +360,7 @@ html, body {
 }
 
 
-.modal-bp-bodyattribute{
+.modal-bp-bodyattribute {
     color: black;
     position: absolute;
     top: 30%;
@@ -230,7 +369,7 @@ html, body {
     font-size: 0.9rem;
 }
 
-.modal-body-Badge{
+.modal-body-Badge {
     color: black;
     background-color: white;
     position: absolute;
@@ -248,12 +387,12 @@ html, body {
     padding-left: 5px;
 }
 
-.modal-body{
+.modal-body {
     text-align: left;
     text-justify: inter-word;
 }
 
-.modal-bp-buttons{
+.modal-bp-buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -272,7 +411,121 @@ html, body {
     border-color: rgb(48, 48, 48);
 }
 
-.modal-lower-btn:hover{
+.modal-lower-btn:hover {
     background-color: rgb(184, 201, 216);
     box-shadow: inset 0 0 0 2px white;
+}
+
+.content-Choice {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-right: 10px;
+    top: 20px;
+    left: 190px;
+}
+
+.content-anchor {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 2px solid gray;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 35px;
+    left: 18px;
+}
+
+.content-anchor span {
+    transform: rotate(-45deg);
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.content-anchor.small {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+
+.content-Exception {
+    position: relative;
+    padding: 20px 40px;
+    border: 2px solid gray;
+    border-left: 10px solid red;
+    font-weight: bold;
+    background: white;
+    clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+    overflow: hidden;
+}
+
+.content-Exception::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: red;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.choice-Arrow {
+    width: 42px;
+    height: 4px;
+    background: gray;
+    position: relative;
+}
+
+.choice-ArrowSpecial {
+    width: 42px;
+    height: 4px;
+    background: gray;
+    position: relative;
+}
+
+.choice-ArrowSpecial::before {
+    content: 'Si';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.circle {
+    width: 14px;
+    height: 14px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    background: white;
+}
+
+.bottom-choice-Arrow {
+    width: 40px;
+    height: 4px;
+    background: gray;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    border: 6px solid transparent;
+    border-top-color: black;
 }
