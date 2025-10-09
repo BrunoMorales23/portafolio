@@ -1,0 +1,108 @@
+{% load static %}
+
+<div class="content">
+    <div class="content-Holder">
+        <p class="content-Content TopBottom">¡Hola de nuevo!</p>
+        <div class="arrow"></div>
+        <p class="content-Content Square">¡Lista de Proyectos!</p>
+        <div class="arrow"></div>
+        <div class="content-Choice">
+            <div class="content-anchor"><span>¿Perfil Personal?</span></div>
+            <div class="choice-ArrowSpecial"></div>
+            <p class="content-Content NoteExperiencia" id="openModalExpAct">Algo más sobre mi</p>
+            <div class="choice-Arrow"></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="home">
+                <div onclick="this.closest('form').submit();">
+                    <p class="content-Content VolverBottom">Volver</p>
+                </div>
+            </form>
+        </div>
+        <div class="arrowSpecial"></div>
+        <div class="arrow"></div>
+        <div class="content-Choice">
+                        <div class="content-anchor Contacto"><span>¿Contacto?</span></div>
+            <div class="choice-ArrowSpecial"></div>
+            <p class="content-Content NoteDatosContacto" id="openModalExpPrev">¡Datos de Contacto!</p>
+            <div class="choice-Arrow"></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="home">
+                <div onclick="this.closest('form').submit();">
+                    <p class="content-Content VolverBottom">Volver</p>
+                </div>
+            </form>
+    </div>
+    <div class="arrowSpecial"></div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="home">
+            <div onclick="this.closest('form').submit();">
+                <div class="justForBlankSpace"></div>
+                <p class="content-Content VolverBottom">Volver</p>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+<div class="modal" id="myModal">
+    <div class="modal-content">
+        <img src="{% static 'assets/bluePrismIcon.png' %}" class="modal-header-icon" width="35" height="25">
+        <p class="modal-header">Propiedades de la Nota</p>
+        <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-title-Container">
+            <p class="modal-bp-attribute">Nombre:</p>
+            <div class="modal-title-Badge">
+                <p class="modal-title"></p>
+            </div>
+        </div>
+        <div class="modal-body-Container">
+            <p class="modal-bp-bodyattribute">Texto de la nota:</p>
+            <div class="modal-body-Badge">
+                <p class="modal-body"></p>
+            </div>
+        </div>
+        <div class="modal-bp-buttons">
+            <button class="modal-lower-btn closeModal">Aceptar</button>
+            <button class="modal-lower-btn closeModal">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('myModal');
+    const closeBtn = document.getElementById('closeModal');
+    const closeBtns = document.querySelectorAll('.closeModal');
+    const openBtnAct = document.getElementById('openModalExpAct');
+    const openBtnPrev = document.getElementById('openModalExpPrev');
+    const title = document.querySelector('.modal-title');
+    const p = document.querySelector('.modal-body');
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+    }
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+    });
+    if (openBtnAct) {
+        openBtnAct.addEventListener('click', () => {
+            p.textContent = 'Mi segundo nombre es NAHUEL.\n Tengo 2 gatos, uno se llama Florencio y el otro Emilio.\n Hago natación y trato de mantener mi cuerpo lo más sano posible.\n Si bien no lo hago siempre, me gustaría darle más énfasis a la programación como hobby, ya que no solo me resulta divertido de hacer, también es una oportunidad de crecimiento y de adquisición de conocimiento técnico enorme.\n Me gusta leer manga, de hecho, tengo una colección de poco más de ¡270 tomos!.\n Me gustaría conocer la patagonia en algún momento, y soy fan de la Monster Blanca.';
+            title.textContent = "Más sobre mi"
+            modal.classList.add('show');
+        });
+    }
+    if (openBtnPrev) {
+        openBtnPrev.addEventListener('click', () => {
+            p.textContent = 'Pueden contactarme por los siguientes canales:\n LinkedIn: https://www.linkedin.com/in/bruno-morales-5247b1201/ \n Correo: brunomorales2303@outlook.es \n \n Y si te interesa ver más de lo que hago. \n Github: https://github.com/BrunoMorales23';
+            title.textContent = "¡Contacto!"
+            modal.classList.add('show');
+        });
+    }
+</script>

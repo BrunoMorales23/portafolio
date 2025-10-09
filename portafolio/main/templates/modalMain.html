@@ -17,6 +17,19 @@
                         <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="1" />
                     </svg>
                 </div>
+                </div>
+        </form>
+        <div class="arrowPageConnection"></div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="content-SobreMi">
+            <div class="content-PageSpecial" onclick="this.closest('form').submit();">
+                <div class="page-wave">Sobre Mi
+                    <svg class="page-wave-border" viewBox="0 0 180 150" preserveAspectRatio="none">
+                        <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="1" />
+                    </svg>
+                </div>
+                </div>
         </form>
     </div>
 </div>
@@ -37,14 +50,11 @@
             <div class="modal-body-Badge">
                 <p class="modal-body">
                     Soy Bruno Morales, desarrollador RPA con Experiencia en Blue Prism y apasionado de Python.
-                    </br>
                     Este portafolio fue creado con la inteción de replicar la interfaz de Blue Prism, con todas sus
                     cosas bonitas (como cosas feas)
-                    </br>
                     Puede que sea complicado navegar por acá. Y si así lo es, entonces excelente, por qué entonces estoy
                     replicando Blue Prism a la perfección.
-                    </br>
-                    </br>
+                                        </br>
                     Dicho eso, ¡gracias por visitar mi portafolio!
                 </p>
             </div>
