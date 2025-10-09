@@ -53,6 +53,7 @@ body {
     border-radius: 50px;
     background-color: white;
     box-shadow: inset 0 0 0 5px transparent;
+    margin-left: 3px;
 }
 
 .content-Content.VolverBottom:hover {
@@ -82,6 +83,7 @@ body {
     border-style: dashed;
     border-color: rgb(191, 191, 191);
     position: relative;
+    margin-left: 4px;
 }
 
 .content-Content.NoteDatosContacto {
@@ -93,6 +95,7 @@ body {
     position: relative;
     width: auto;
     height: auto;
+    margin-left: 4px;
 }
 
 .content-Content.NoteExperienciaColumn {
@@ -551,7 +554,7 @@ body {
     justify-content: center;
     position: relative;
     margin-right: 35px;
-    left: 18px;
+    left: 25px;
 }
 
 .content-anchor.Contacto {
@@ -565,7 +568,7 @@ body {
     justify-content: center;
     position: relative;
     margin-right: 35px;
-    left: 29px;
+    left: 35px;
     margin-right: 45px;
 }
 
@@ -606,16 +609,44 @@ body {
 
 .choice-Arrow {
     width: 42px;
-    height: 4px;
-    background: gray;
+    height: 2px;
+    background: black;
     position: relative;
+}
+
+
+.choice-Arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid black;
 }
 
 .choice-ArrowSpecial {
     width: 42px;
-    height: 4px;
-    background: gray;
+    height: 2px;
+    background: black;
     position: relative;
+    margin-left: 6px;
+}
+
+.choice-ArrowSpecial::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid black;
 }
 
 .choice-ArrowSpecial::before {
@@ -662,4 +693,27 @@ body {
 
 .justForBlankSpace {
     padding-top: 40px;
+}
+
+.justForBlankSpaceMain {
+  margin-top: -30px;
+}
+
+    .arrowFinalMain {
+    width: 2px;
+    height: 50px;
+    background-color: black;
+    position: relative;
+    top: -30px;
+      margin-top: -10px;
+}
+
+.arrowFinalMain::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    border: 6px solid transparent;
+    border-top-color: black;
 }
