@@ -14,10 +14,10 @@
             <div class="content-Page" onclick="this.closest('form').submit();">
                 <div class="page-wave">Experiencia Laboral
                     <svg class="page-wave-border" viewBox="0 0 180 150" preserveAspectRatio="none">
-                        <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="1" />
+                        <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="2" />
                     </svg>
                 </div>
-                </div>
+            </div>
         </form>
         <div class="arrowPageConnection"></div>
         <form action="" method="post">
@@ -26,14 +26,14 @@
             <div class="content-PageSpecial" onclick="this.closest('form').submit();">
                 <div class="page-wave">Sobre Mi
                     <svg class="page-wave-border" viewBox="0 0 180 150" preserveAspectRatio="none">
-                        <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="1" />
+                        <path d="M180,0 H0 V120 C60,170 120,85 180,130 Z" fill="none" stroke="black" stroke-width="2" />
                     </svg>
                 </div>
-                </div>
+            </div>
         </form>
         <div class="arrowFinalMain"></div>
-                        <div class="justForBlankSpaceMain"></div>
-                <p class="content-Content VolverBottom">¡Adiós!</p>
+        <div class="justForBlankSpaceMain"></div>
+        <p class="content-Content VolverBottom">¡Adiós!</p>
     </div>
 </div>
 
@@ -53,11 +53,12 @@
             <div class="modal-body-Badge">
                 <p class="modal-body">
                     Soy Bruno Morales, desarrollador RPA con Experiencia en Blue Prism y apasionado de Python.
-                    Este portafolio fue creado con la inteción de replicar la interfaz de Blue Prism, con todas sus
+                    Este portafolio fue creado con la simpática inteción de replicar la interfaz de Blue Prism, con
+                    todas sus
                     cosas bonitas (como cosas feas)
-                    Puede que sea complicado navegar por acá. Y si así lo es, entonces excelente, por qué entonces estoy
-                    replicando Blue Prism a la perfección.
-                                        </br>
+                    Puede que sea complicado navegar por acá, así que guíate de las notas puntadas y los bloques
+                    amarillos para explorar el contenido.
+                    </br>
                     Dicho eso, ¡gracias por visitar mi portafolio!
                 </p>
             </div>
@@ -69,27 +70,4 @@
     </div>
 </div>
 
-<script>
-    const openBtn = document.getElementById('openModal');
-    const closeBtn = document.getElementById('closeModal');
-    const modal = document.getElementById('myModal');
-
-    openBtn.addEventListener('click', () => {
-        modal.classList.add('show');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('show');
-    });
-
-    const closeBtns = document.querySelectorAll('.closeModal');
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.remove('show');
-    });
-</script>
+<script src="{% static 'scripts.js' %}"></script>

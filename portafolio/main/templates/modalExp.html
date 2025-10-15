@@ -56,37 +56,4 @@
     </div>
 </div>
 
-<script>
-    const modal = document.getElementById('myModal');
-    const closeBtn = document.getElementById('closeModal');
-    const closeBtns = document.querySelectorAll('.closeModal');
-    const openBtnAct = document.getElementById('openModalExpAct');
-    const openBtnPrev = document.getElementById('openModalExpPrev');
-    const title = document.querySelector('.modal-title');
-    const p = document.querySelector('.modal-body');
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    }
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    });
-    if (openBtnAct) {
-        openBtnAct.addEventListener('click', () => {
-            p.textContent = 'Actualmente, soy referente técnico en RMR Technology Solutions, para un proyecto, donde lidero desarrollos nuevos, propongo mejoras continuas y refactorizo código legacy del cliente. Mi foco está en entregar código de calidad, documentar todos los avances y dar soporte diario al equipo del cliente en dudas técnicas.';
-            title.textContent = "Experiencia Actual"
-            modal.classList.add('show');
-        });
-    }
-    if (openBtnPrev) {
-        openBtnPrev.addEventListener('click', () => {
-            p.textContent = 'Mi primer trabajo fue en Ctrl365, donde fui digital assistant (desarrollador trainee), en donde se me fue instruido en el uso de Blue Prism y por primera vez, me encontré en un entorno de trabajo dentro del rubro informático.\n Eventualmente pude ascender a Developer, por último a Digital Developer (Dev Junior +).\n Luego formé parte del equipo de Practia Global, donde fui Desarrollador de Blue Prism y Analista de Negocio para un proyecto de UIPath.\n Mi foco para esa instancia, no solo era entregar código en las mejores condiciones posibles, sino además, poder responder dudas y consultas de mi lider y el cliente, además de facilitar documentación y soporte productivo.';
-            title.textContent = "Experiencia Previa"
-            modal.classList.add('show');
-        });
-    }
-</script>
+<script src="{% static 'scripts.js' %}"></script>

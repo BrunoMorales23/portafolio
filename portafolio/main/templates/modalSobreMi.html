@@ -4,12 +4,12 @@
     <div class="content-Holder">
         <p class="content-Content TopBottom">¡Hola de nuevo!</p>
         <div class="arrow"></div>
-        <p class="content-Content Square">¡Lista de Proyectos!</p>
+        <p class="content-Content SquareSpecial" id="openModalProjects">¡Lista de Proyectos!</p>
         <div class="arrow"></div>
         <div class="content-Choice">
             <div class="content-anchor"><span>¿Perfil Personal?</span></div>
             <div class="choice-ArrowSpecial"></div>
-            <p class="content-Content NoteExperiencia" id="openModalExpAct">Algo más sobre mi</p>
+            <p class="content-Content NoteExperiencia" id="openModalAbt">Algo más sobre mi</p>
             <div class="choice-Arrow"></div>
             <form action="" method="post">
                 {% csrf_token %}
@@ -24,7 +24,7 @@
         <div class="content-Choice">
                         <div class="content-anchor Contacto"><span>¿Contacto?</span></div>
             <div class="choice-ArrowSpecial"></div>
-            <p class="content-Content NoteDatosContacto" id="openModalExpPrev">¡Datos de Contacto!</p>
+            <p class="content-Content NoteDatosContacto" id="openModalCont">¡Datos de Contacto!</p>
             <div class="choice-Arrow"></div>
             <form action="" method="post">
                 {% csrf_token %}
@@ -44,7 +44,6 @@
             </div>
         </form>
     </div>
-</div>
 </div>
 
 
@@ -72,37 +71,90 @@
     </div>
 </div>
 
-<script>
-    const modal = document.getElementById('myModal');
-    const closeBtn = document.getElementById('closeModal');
-    const closeBtns = document.querySelectorAll('.closeModal');
-    const openBtnAct = document.getElementById('openModalExpAct');
-    const openBtnPrev = document.getElementById('openModalExpPrev');
-    const title = document.querySelector('.modal-title');
-    const p = document.querySelector('.modal-body');
+<div class="modalAction" id="myModalProjects">
+    <div class="modalAction-content">
+        <img src="{% static 'assets/bluePrismIcon.png' %}" class="modalAction-header-icon" width="35" height="25">
+        <p class="modalAction-header">Propiedades de la Acción</p>
+        <button class="close-btn" id="closeModalProjects">&times;</button>
+        <div class="modalAction-title-Container">
+            <div class="modalAction-row">
+            <p class="modalAction-bp-attribute">Nombre:</p>
+            <div class="modalAction-title-Badge">
+                <p class="modalAction-title">Lista de Proyectos</p>
+            </div>
+            </div>
+            <div class="modalAction-row">
+            <p class="modalAction-bp-attribute">Descripción:</p>
+            <div class="modalAction-title-BadgeSpecial">
+                <p class="modalAction-title">En este apartado, tendrá acceso a la lista disponible de proyectos realizados hasta la fecha.</p>
+            </div>
+            </div>
+        </div>
 
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    }
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-    });
-    if (openBtnAct) {
-        openBtnAct.addEventListener('click', () => {
-            p.textContent = 'Mi segundo nombre es NAHUEL.\n Tengo 2 gatos, uno se llama Florencio y el otro Emilio.\n Hago natación y trato de mantener mi cuerpo lo más sano posible.\n Si bien no lo hago siempre, me gustaría darle más énfasis a la programación como hobby, ya que no solo me resulta divertido de hacer, también es una oportunidad de crecimiento y de adquisición de conocimiento técnico enorme.\n Me gusta leer manga, de hecho, tengo una colección de poco más de ¡270 tomos!.\n Me gustaría conocer la patagonia en algún momento, y soy fan de la Monster Blanca.';
-            title.textContent = "Más sobre mi"
-            modal.classList.add('show');
-        });
-    }
-    if (openBtnPrev) {
-        openBtnPrev.addEventListener('click', () => {
-            p.textContent = 'Pueden contactarme por los siguientes canales:\n LinkedIn: https://www.linkedin.com/in/bruno-morales-5247b1201/ \n Correo: brunomorales2303@outlook.es \n \n Y si te interesa ver más de lo que hago. \n Github: https://github.com/BrunoMorales23';
-            title.textContent = "¡Contacto!"
-            modal.classList.add('show');
-        });
-    }
-</script>
+        <div class="modalAction-DropMenu">
+    <div class="modalAction-BodyHeader">
+        <div class="modalAction-row">
+            <p>Proyecto:</p>
+            <div class="modalAction-dropdown">
+                <div class="modalAction-dropbtn">
+                    <p class="modalAction-CurrentTitle"></p>
+                </div>
+                <div class="modalAction-dropbtn-content">
+                    <a class="modalAction-dropmenu-item" id="BP-bbdd-Scrapper">BP-bbdd-Scrapper</a>
+                    <a class="modalAction-dropmenu-item" id="Calcv2">Calcv2</a>
+                    <a class="modalAction-dropmenu-item" id="BP-Release-Analyzer">BP-Release-Analyzer</a>
+                    <a class="modalAction-dropmenu-item" id="ChessCoach">ChessCoach</a>
+                </div>
+            </div>
+        </div>
+        <div class="modalActionButtonFeatures">
+        <p class="modalActionButtonSpecial">Entradas</p>
+        <p class="modalActionButton">Salidas</p>
+        <p class="modalActionButton">Condiciones</p>
+</div>
+        <div class="modalAction-ProjectInfoContainer">
+<table class="modalActionTableGeneral">
+  <tr>
+    <th class="modalActionTableHeader">Nombre</th>
+    <th class="modalActionTableHeader">Tipo de datos</th>
+    <th class="modalActionTableHeaderSpecial">Valor</th>
+  </tr>
+  <tr class="modalActionTableRowSpecial">
+    <td class="modalActionRowFieldSpecial">Nombre Proyecto</td>
+    <td class="modalActionRowDataTypeSpecial">Texto</td>
+    <td class="modalActionRowNameValueReplaceable"></td>
+  </tr>
+    <tr class="modalActionTableRow">
+    <td class="modalActionRowField">Descripción</td>
+    <td class="modalActionRowDataType">Texto</td>
+    <td class="modalActionRowDescValueReplaceable"></td>
+  </tr>
+    <tr class="modalActionTableRow">
+    <td class="modalActionRowField">Repositorio</td>
+    <td class="modalActionRowDataType">Texto</td>
+    <td class="modalActionRowRepoValueReplaceable"></td>
+  </tr>
+</table>
+        </div>
+    </div>
+</div>
+
+        <div class="modalAction-ActionStatics">
+            <p>Estado de Proyecto:</p>
+            <p>Porcentaje de Avance:</p>
+        </div>
+        <div class="modalAction-ActionStaticsReplaceable">
+            <p class="modalAction-ActionStaticsReplaceableRow" id="modalActionEstadoProyecto"></p>
+            <p class="modalAction-ActionStaticsReplaceableRow" id="modalActionPorcentajeAvance"></p>
+        </div>
+
+
+        <div class="modal-bp-buttons">
+            <button class="modal-lower-btn closeModalProjects">Aceptar</button>
+            <button class="modal-lower-btn closeModalProjects">Cancelar</button>
+        </div>
+        
+    </div>
+</div>
+
+<script src="{% static 'scripts.js' %}"></script>
