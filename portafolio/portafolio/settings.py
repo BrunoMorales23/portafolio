@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['portafolio-qo5w.onrender.com', 'localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://portafolio-qo5w.onrender.com",
+    "http://localhost:8000",
+]
+
 
 # Application definition
 
