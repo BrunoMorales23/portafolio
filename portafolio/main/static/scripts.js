@@ -62,6 +62,7 @@ closeBtnsProjects.forEach(btn => {
     btn.addEventListener('click', () => {
         modalProjects.classList.remove('show');
         modalActionTableGeneral.classList.remove('show');
+        modalActionTitle.textContent = '';
     });
 });
 
